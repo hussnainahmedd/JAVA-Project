@@ -1,192 +1,107 @@
 <div align="center">
 
-# 🏢 Human Resource Management System (HRMS)
+# 🏢 HRMS — Human Resource Management System
 
-### _A Comprehensive Desktop Application for Employee Management_
+**A Java Swing desktop application for managing employees, payroll, and reports — built as a university Java project.**
 
-[![Java](https://img.shields.io/badge/Java-Swing-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
-[![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
-[![NetBeans](https://img.shields.io/badge/IDE-NetBeans-1B6AC6?style=for-the-badge&logo=apache-netbeans&logoColor=white)](https://netbeans.apache.org/)
-[![iTextPDF](https://img.shields.io/badge/Reports-iTextPDF-FF0000?style=for-the-badge)](https://itextpdf.com/)
-
-<br/>
-
-```
-    ╔══════════════════════════════════════════════════════╗
-    ║                                                      ║
-    ║        ██╗  ██╗██████╗ ███╗   ███╗███████╗           ║
-    ║        ██║  ██║██╔══██╗████╗ ████║██╔════╝           ║
-    ║        ███████║██████╔╝██╔████╔██║███████╗           ║
-    ║        ██╔══██║██╔══██╗██║╚██╔╝██║╚════██║           ║
-    ║        ██║  ██║██║  ██║██║ ╚═╝ ██║███████║           ║
-    ║        ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝           ║
-    ║                                                      ║
-    ║       Streamline Your HR Operations Efficiently      ║
-    ╚══════════════════════════════════════════════════════╝
-```
-
-<br/>
-
-> 💼 A robust, standalone **Java-based desktop application** designed to manage all aspects of Human Resources. From tracking employee details and calculating salaries (with allowances and deductions) to generating secure PDF reports and maintaining audit logs, this system handles it all through an intuitive GUI.
-
----
-
-[Features](#-features) •
-[Screenshots](#-modules) •
-[Tech Stack](#-tech-stack) •
-[Setup](#-quick-start) •
-[Project Structure](#-project-structure)
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
+[![Java Swing](https://img.shields.io/badge/Java_Swing-007396?style=for-the-badge)](https://docs.oracle.com/javase/tutorial/uiswing/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![iTextPDF](https://img.shields.io/badge/iTextPDF-FF0000?style=for-the-badge)](https://itextpdf.com/)
+[![NetBeans](https://img.shields.io/badge/NetBeans-1B6AC6?style=for-the-badge&logo=apachenetbeans&logoColor=white)](https://netbeans.apache.org/)
 
 </div>
 
 ---
 
-## ✨ Features
+## 📸 Preview
 
-<table>
-<tr>
-<td width="50%">
+![HRMS preview](assets/hero.webp)
 
-### 👥 Employee Management
-- **Add, Update, and Search** employee records easily.
-- Store detailed personal, contact, and departmental information.
-- Secure login portal with role-based access control.
+## 📖 About
 
-### 💰 Payroll & Salary
-- Comprehensive salary management system.
-- Calculate and apply **Allowances** (bonuses, medical, etc.).
-- Calculate and apply **Deductions** (taxes, absences, etc.).
-- Update base salaries dynamically.
+This is a complete **Human Resource Management System** written in Java, built with the NetBeans GUI designer (Matisse). It runs as a standalone desktop app: you log in, and from the main menu you can manage employee records, adjust salaries, apply allowances and deductions, search employees, generate PDF payslips, and review an audit trail of activity. All data is stored in a local SQLite database — no server needed.
 
-</td>
-<td width="50%">
+I built this to learn how a real desktop application fits together: forms, event handling, database access, and report generation, all in one project.
 
-### 📄 Report Generation
-- Instantly generate professional **PDF reports** and payslips.
-- Export employee records and financial data securely using iTextPDF.
+## 🧩 What's Inside
 
-### 🛡️ Audit & Security
-- Built-in **Audit Trail** to track user activity and logins.
-- Secure database connectivity using SQLite.
-- Interactive and user-friendly Java Swing graphical interface.
+Every screen is a separate form in the `humanresourcesystemm` package under `HRMS/src/`:
 
-</td>
-</tr>
-</table>
+| Form | What it does |
+|---|---|
+| `login.java` | Login screen — validates credentials against the database |
+| `MainMenu.java` | Dashboard with navigation to every module |
+| `addEmployee.java` | Form for adding a new employee record |
+| `updatesalary.java` | Update an employee's base salary |
+| `Allowance.java` | Add allowances (bonuses, medical, etc.) to a profile |
+| `deductions.java` | Apply deductions (tax, unpaid leave, etc.) |
+| `searchempsalary.java` | Search employees and generate PDF payslip reports |
+| `Audit.java` | Activity / audit-trail log viewer |
+| `Emp.java` | Employee record management form |
+| `About.java` | About screen |
+| `db.java` | SQLite connection helper (`db_java()`) |
+| `HumanResourceSystem.java` | Entry-point class |
 
----
-
-## 🏗️ Modules & Forms
-
-The application is built around several dedicated modules (accessible via the `MainMenu`):
-
-1. **Login (`login.java`)**: Secure entry point validating user credentials against the database.
-2. **Add Employee (`addEmployee.java`)**: Form for entering new staff details into the system.
-3. **Salary Update (`updatesalary.java`)**: Interface to modify base pay for promotions or adjustments.
-4. **Allowances (`Allowance.java`)**: Calculate and add extra compensation to an employee's profile.
-5. **Deductions (`deductions.java`)**: Calculate and deduct taxes, penalties, or unpaid leave.
-6. **Search & Payslips (`searchempsalary.java`)**: Locate employees and generate PDF payslip reports.
-7. **Audit Logs (`Audit.java`)**: Track system usage and administrative actions.
-
----
+The database file `HRMS/HRMS.db` is included in the repo, so the app has data to work with right away.
 
 ## 🛠️ Tech Stack
 
-<div align="center">
+| Layer | Technology |
+|---|---|
+| Language | Java (SE) |
+| GUI | Java Swing / AWT (NetBeans Matisse forms) |
+| Database | SQLite via `sqlite-jdbc-3.42.0.0.jar` |
+| PDF reports | iText `itextpdf-5.5.4.jar` |
+| Table binding | `rs2xml.jar` (ResultSet → JTable) |
+| Date pickers | `jdatepicker-1.3.4.jar` |
+| Build / IDE | Apache NetBeans (Ant `build.xml`) |
 
-| Layer | Technology / Library | Purpose |
-|:---|:---|:---|
-| **Core Language** | Java SE | Application logic |
-| **GUI Framework** | Java Swing & AWT | Desktop graphical user interface |
-| **Database** | SQLite (`sqlite-jdbc`) | Lightweight, serverless relational data storage |
-| **PDF Generation** | `itextpdf-5.5.4.jar` | Exporting payslips and employee reports |
-| **UI Components** | `rs2xml.jar`, `jdatepicker` | Advanced table rendering and date selection |
-| **IDE Environment** | Apache NetBeans | Project structuring and form generation |
+All required `.jar` files ship in the `HRMS/` folder.
 
-</div>
+## 🚀 Build & Run
 
----
+### Option 1 — NetBeans (easiest)
 
-## 🚀 Quick Start
+1. Clone the repo: `git clone https://github.com/hussnainahmedd/JAVA-Project.git`
+2. In NetBeans: **File → Open Project** and select the `HRMS` folder.
+3. Make sure the `.jar` files in `HRMS/` are on the project's classpath (Libraries).
+4. Right-click `login.java` (or `MainMenu.java`) → **Run File**.
 
-### Prerequisites
+### Option 2 — Command line
 
-| Requirement | Why |
-|:---|:---|
-| **Java Development Kit (JDK 8+)** | To compile and run the Java code |
-| **Apache NetBeans (Recommended)** | For easy opening of the project and GUI designer editing |
+From inside the `HRMS/` folder:
 
-### Installation
-
-**1. Clone the repository**
 ```bash
-git clone https://github.com/hussnainahmedd/JAVA-Project.git
+javac -cp ".;sqlite-jdbc-3.42.0.0.jar;itextpdf-5.5.4.jar;rs2xml.jar;jdatepicker-1.3.4.jar" src/Humanresourcesystemm/*.java
+java -cp ".;src;sqlite-jdbc-3.42.0.0.jar;itextpdf-5.5.4.jar;rs2xml.jar;jdatepicker-1.3.4.jar" humanresourcesystemm.login
 ```
 
-**2. Open in NetBeans**
-- Launch NetBeans IDE.
-- Go to `File` > `Open Project...`
-- Navigate to the cloned repository and select either the `HRMS` or `HRMS M` folder.
+(On Linux/macOS, replace `;` with `:` in the classpath.)
 
-**3. Verify Libraries**
-Ensure the following `.jar` files (included in the root of the project folders) are added to your project's Build Path/Libraries:
-- `sqlite-jdbc-3.42.0.0.jar`
-- `itextpdf-5.5.4.jar`
-- `rs2xml.jar`
-- `jdatepicker-1.3.4.jar`
-
-**4. Run the Application**
-- Right-click the `login.java` or `HumanResourceSystem.java` file and select **Run File**.
-
-> [!IMPORTANT]
-> The database file (`HRMS.db`) is already included in the repository. Make sure the database connection string in `db.java` correctly points to the location of this file if you move the project directory.
-
----
+> ⚠️ One honest note: the connection string in `db.java` uses a hardcoded Windows path (`jdbc:sqlite:C:/Users/.../HRMS/HRMS.db`). If the app can't connect on your machine, update that path in `db.java` to point at the `HRMS.db` file in your clone.
 
 ## 📂 Project Structure
 
 ```
 JAVA-Project/
-│
-├── HRMS/                           # Main Project Directory
-│   ├── build.xml                   # Ant build script
-│   ├── HRMS.db                     # 🗄️ SQLite Database File
-│   ├── manifest.mf                 # JAR Manifest
-│   ├── nbproject/                  # NetBeans configuration files
-│   ├── *.jar                       # Required libraries (SQLite, iTextPDF, etc.)
-│   │
-│   └── src/Humanresourcesystemm/   # 💻 Source Code
-│       ├── db.java                 # Database connection logic
-│       ├── login.java              # Auth screen
-│       ├── MainMenu.java           # Dashboard
-│       ├── addEmployee.java        # Employee entry form
-│       ├── Allowance.java          # Compensation logic
-│       ├── deductions.java         # Penalty logic
-│       ├── Audit.java              # Activity tracking
-│       ├── searchempsalary.java    # Reporting interface
-│       └── images/                 # UI Icons and Assets
-│
-└── HRMS M/                         # Secondary/Modified Project Directory (similar structure)
+├── README.md
+└── HRMS/                          # NetBeans project
+    ├── build.xml                  # Ant build script
+    ├── HRMS.db                    # SQLite database (ships with the repo)
+    ├── sqlite-jdbc-3.42.0.0.jar    # SQLite JDBC driver
+    ├── itextpdf-5.5.4.jar         # PDF generation
+    ├── rs2xml.jar                 # ResultSet → JTable binding
+    ├── jdatepicker-1.3.4.jar      # Date picker component
+    └── src/Humanresourcesystemm/  # Source: 12 forms + db helper + entry point
 ```
-
----
-
-## 🤝 Contributing
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m '✨ Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
 
 ---
 
 <div align="center">
 
-**⭐ Star this repo if you found it useful!**
-
-<br/>
-
-Built with ☕ Java and Swing.
+Built by **Hussnain Ahmad** — learning by building, one project at a time.
+<br>
+https://github.com/hussnainahmedd
 
 </div>
